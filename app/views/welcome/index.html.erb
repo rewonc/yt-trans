@@ -1,5 +1,8 @@
 <div>
   <div ng-controller="VideosCtrl">
+    <div id="player"></div>
+    <a ng-click="loadVideo()">load vid</a>
+    <hr />
     <h2>Video ID's from rails backend:</h2>
     <ul>
       <li ng-repeat="video in videos">
