@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+videos = Video.create([{ name: 'FeXLPBCiCpw' }, { name: 'jofNR_WkoCE' }, { name: '6zY_UuztWJU' }])

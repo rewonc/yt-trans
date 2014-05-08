@@ -11,7 +11,7 @@ describe "videos/edit" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", video_path(@video), "post" do
+    assert_select "form[action=?][method=?]", video_path(@video.id), "post" do
       assert_select "input#video_name[name=?]", "video[name]"
     end
   end
