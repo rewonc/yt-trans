@@ -1,3 +1,3 @@
-App.factory 'Video', ['$resource', ($resource) ->
+app.factory 'Video', ['$resource', ($resource) ->
   $resource '/api/videos/:id', id: '@id'
 ]
