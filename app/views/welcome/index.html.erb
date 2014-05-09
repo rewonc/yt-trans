@@ -1,13 +1,37 @@
-<div>
-  <div ng-controller="VideosCtrl">
-    <div yt-player code="code"></div>
-    <a ng-click="loadVideo()">load vid</a>
-    <hr />
-    <h2>Video ID's from rails backend:</h2>
-    <ul>
-      <li ng-repeat="video in videos">
-        <h3>{{video.name}}</h3>
-      </li>
-    </ul>
+<div ng-controller="VideosCtrl">
+  <div yt-player code="yturl"></div>
+  <input type="text" ng-model="yturl"></input>
+  {{yturl}}
+  <hr />
+  <div>
+    Subtitles - maybe this should be included with yt-player?
   </div>
+  <h3>Player controls</h3>
+  <ul>
+    <li>Play/Pause</li>
+    <li>Slow down</li>
+    <li>Speed up</li>
+  </ul>
+  <h3>Timeline</h3>
+  <ul>
+    <li></li>
+  </ul>
+  <hr />
+  <h3>Load different videos (pulling from rails backend)</h3>
+  <ul>
+    <li ng-repeat="video in videos">
+      <h3>{{video.name}}</h3>
+    </li>
+  </ul>
+</div>
+
+
+<div>
+Tests to run:<br />
+Step 1: display a video correctly through custom directive<br/>
+Step 2: change video src function through rails backend<br/>
+Step 3: integrate UI controls on top of video<br/>
+Step 4: integrate timeline controls on top of UI controls, with ability to add comments<br/>
+Step 5: (rails) -> implement CRUD for videos, separate page<br/>
+
 </div>
