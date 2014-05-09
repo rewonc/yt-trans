@@ -4,7 +4,7 @@ app.directive 'ytPlayer', ($sce) ->
     restrict: 'A',
     scope: { code:'=' },
     replace: true,
-    templateUrl: 'yt-player.html',
+    templateUrl: "yt-player.html",
     link: (scope) ->
         console.log 'here'
         scope.$watch 'code', (newVal) ->
