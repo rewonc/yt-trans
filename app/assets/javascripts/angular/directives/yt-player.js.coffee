@@ -1,4 +1,3 @@
-
 app.directive 'ytPlayer', ($sce) ->
   {
     restrict: 'A',
@@ -11,5 +10,3 @@ app.directive 'ytPlayer', ($sce) ->
           if newVal
             scope.url = $sce.trustAsResourceUrl "http://www.youtube.com/embed/" + newVal
   }
-
-  #change the template here. make it legit, with onclick = ... etc.
