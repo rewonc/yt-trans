@@ -1,12 +1,14 @@
-<div ng-controller="VideosCtrl">
-  <div yt-player code="yturl"></div>
-  <input type="text" ng-model="yturl"></input>
-  {{yturl}}
+<div ng-controller="VideosCtrl"> 
+  <div yt-player code="yturl" ng-init="hello"></div>
+  <div class="col-lg-2">
+    <input type="text" ng-model="yturl" class="form-control"></input> 
+  Video id: {{yturl}}. Change using input above.
+  </div>
   <hr />
   <h3>Load different videos (rails api -> JS)</h3>
   <ul>
     <li ng-repeat="video in videos">
-      <h3><button ng-click="loadVideo(video.name)">{{video.name}}</button></h3>
+      <h3><button ng-click="loadVideo(video.name)" class="btn btn-default">{{video.name}}</button></h3>
     </li>
   </ul>
   <ul>
@@ -17,11 +19,3 @@
 
 
 <div>
-Tests to run:<br />
-Step 1: display a video correctly through custom directive<br/>
-Step 2: change video src function through rails backend<br/>
-Step 3: integrate UI controls on top of video<br/>
-Step 4: integrate timeline controls on top of UI controls, with ability to add comments<br/>
-Step 5: (rails) -> implement CRUD for videos, separate page<br/>
-
-</div>
