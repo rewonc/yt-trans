@@ -1,1 +1,5 @@
-var app = angular.module('YouTuber', ['templates','ngResource', 'youtube']);
+var app = angular.module('YouTuber', [
+  'templates',
+  'ngResource', 
+  'youtube',
+]);
