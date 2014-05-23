@@ -12,12 +12,13 @@ ytDirectives.directive 'ytPlayer', ($sce) ->
         element.find('#timerbar').click (event) -> 
           current = event.offsetX
           max = event.currentTarget.clientWidth
-          console.log percentage = current / max
-          scope.timer = percentage
+          percentage = current / max
+          console.log scope
+          ##scope.timer = percentage
 
         #can insert the event listeners here...
         scope.$watch 'code', (newVal) ->
           if newVal
             scope.url = $sce.trustAsResourceUrl "http://www.youtube.com/embed/" + newVal
-            
+          
   }
