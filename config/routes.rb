@@ -4,7 +4,7 @@ Youtuber::Application.routes.draw do
     get "/videos/:id(.:format)" => "videos#show"
   end
 
-  root "welcome#index"
+  root "videos#index"
   
   resources :videos
 

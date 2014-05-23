@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     respond_to do |format|
-      format.html { @videos = Video.all }
+      format.html {  }
       format.json { render json: Video.all }
     end
   end
@@ -78,6 +78,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name)
+      params.require(:video).permit(:name, :title, :url, :description, :views, :language)
     end
 end

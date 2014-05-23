@@ -1,26 +1,8 @@
-<h1>Listing videos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @videos.each do |video| %>
-      <tr>
-        <td><%= video.name %></td>
-        <td><%= link_to 'Show', video %></td>
-        <td><%= link_to 'Edit', edit_video_path(video) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Video', new_video_path %>
+<div ng-controller="VideosCtrl">  
+  <ul>
+    <li ng-repeat="video in videos">
+      <a href="<%= videos_path %>/{{video.id}}">{{video.title}} .</a>
+      <p>{{video.description}}</p>
+    </li>
+  </ul>
+</div>

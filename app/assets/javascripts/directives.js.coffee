@@ -3,7 +3,7 @@ ytDirectives = angular.module 'ytDirectives', []
 ytDirectives.directive 'ytPlayer', ($sce) ->
   {
     restrict: 'EA',
-    scope: { vid: '=hello' },  #do not understand this
+    scope: { code: '=' },  #do not understand this
     replace: true,
     templateUrl: "yt-player.html",
     link: (scope, element, attrs) ->
