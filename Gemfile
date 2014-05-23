@@ -1,6 +1,13 @@
 source 'https://rubygems.org'
 
 #password for pg: 1-8
+##
+##todo: put in models in rails backend
+##todo: set up views and html controllers, no angular
+##todo: set up youtube window, no angular, get it working, just a normal form
+##todo: set up api for rails backend
+##todo: afterward, port over to angular // express // mongo // node, write tests
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'

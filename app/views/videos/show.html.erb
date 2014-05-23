@@ -1,9 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div ng-controller="VideosCtrl">
+  <div class="row"> 
+    <div class-"col-sm-8">
+      <div yt-player code="yturl" ng-init="hello"></div>
+    </div>
+    <div class="col-sm-4">
+      <input type="text" ng-model="yturl" class="form-control" value="<%= @video.name %>"></input> 
+    Video id: {{yturl}}. Change using input above.
+      <hr />
+      <h3>Load different videos (rails api -> JS)</h3>
+      <ul>
+        <li ng-repeat="video in videos">
+          <h3><button ng-click="loadVideo(video.name)" class="btn btn-default">{{video.name}}</button></h3>
+        </li>
+      </ul>
+      <ul>
+        <li><%= link_to 'Add a video', new_video_path %></li> 
+      </ul>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @video.name %>
-</p>
+  
+  what is this site, like a cultural envoy?
+  localization
+  internationalization
+  youtube.embassy.io
+  embassy.io
+  envoy.io
+  youtube.emissary.io
+  ambassador: chilean
+  tour guide? no
+  decipher
+  import
+  foreign.io
+  envoy.com
+  amigo
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+  youtube.abroad.fm/
+  
