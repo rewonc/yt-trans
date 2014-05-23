@@ -12,7 +12,7 @@ ytDirectives.directive 'ytPlayer', ($sce) ->
         element.find('#timerbar').click (event) -> 
           current = event.offsetX
           max = event.currentTarget.clientWidth
-          percentage = current / max
+          percentage = Math.round((current / max) * 1000)/1000
           ##console.log scope
           scope.timer = percentage
           scope.$apply();
