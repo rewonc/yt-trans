@@ -1,13 +1,13 @@
 app.directive 'ytPlayer', ($sce) ->
   {
-    restrict: 'A',
-    scope: { code:'=' },
+    restrict: 'EA',
+    scope: { vid: '=hello' },  #do not understand this
     replace: true,
     templateUrl: "yt-player.html",
     link: (scope, element, attrs) ->
-        var2 = 'hi'
+        scope.var2 = 'hi'
         console.log scope
-        element.find('#button1').click () -> alert(var2)
+        element.find('#button1').click () -> alert('howdy')
         scope.$watch 'code', (newVal) ->
           if newVal
             scope.url = $sce.trustAsResourceUrl "http://www.youtube.com/embed/" + newVal

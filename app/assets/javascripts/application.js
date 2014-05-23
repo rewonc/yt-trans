@@ -20,6 +20,9 @@
 
 //= require app
 
-//= require_tree ./angular
+//= require controllers
+//= require directives
+//= require filters
+//= require services
 
 

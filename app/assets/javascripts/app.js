@@ -1,5 +1,8 @@
 var app = angular.module('YouTuber', [
   'templates',
-  'ngResource', 
-  'youtube',
+  'ngResource',
+  'ytControllers',
+  'ytFilters',
+  'ytServices',
+  'ytDirectives'
 ]);

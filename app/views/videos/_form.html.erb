@@ -12,16 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :"name e.g. the video id" %><br>
-    <%= f.text_field :name %>
+    <%= f.label :"vid id" %><br>
+    <%= f.text_field :name %><br>
     <%= f.label :url %><br>
-    <%= f.text_field :url %>
+    <%= f.text_field :url %><br>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title %><br>
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
-    <%= f.label :view %><br>
-    <%= f.text_field :view %>
+    <%= f.text_field :description %><br>
+    <%= f.label :views %><br>
+    <%= f.text_field :views %><br>
+    <%= f.label :language %><br>
+    <%= f.text_field :language %> // type in japanese, chinese, etc<br>
   </div>
   <div class="actions">
     <%= f.submit %>
