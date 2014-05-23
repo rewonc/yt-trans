@@ -1,0 +1,1 @@
+ytFilters = angular.module 'ytFilters', []

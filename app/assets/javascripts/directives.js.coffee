@@ -1,4 +1,6 @@
-app.directive 'ytPlayer', ($sce) ->
+ytDirectives = angular.module 'ytDirectives', []
+
+ytDirectives.directive 'ytPlayer', ($sce) ->
   {
     restrict: 'EA',
     scope: { vid: '=hello' },  #do not understand this
