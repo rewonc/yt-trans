@@ -1,22 +1,17 @@
-<div ng-controller="VideosCtrl"> 
-  <div yt-player code="john"></div>
-  <div class="col-lg-2">
-    <input type="text" ng-model="code" class="form-control"></input> 
-  Video id: {{code}}. Change using input above.
+<div ng-controller="VideosShowCtrl"> 
+  {{loadVideo("<%= @video.name %>")}}
+ 
+  <div yt-player code="code">
   </div>
-  <hr />
-  <h3>Load different videos (rails api -> JS)</h3>
-  <ul>
+  
+  <h4>Load different videos</h4>
+ 
+  <ul class="list-inline">
     <li ng-repeat="video in videos">
-      <h3><button ng-click="loadVideo(video.name)" class="btn btn-default">{{video.name}}</button></h3>
+      <a ng-click="loadVideo(video.name)" class="" href="">{{video.title}}</a>
     </li>
-  </ul>
-  <ul>
-    <li><%= link_to 'Add a video', new_video_path %></li> 
-  </ul>
-  
-  
+  </ul>  
+
+  <em>current video id: </em><code>{{code}}</code>
+
 </div>
-
-
-<div>

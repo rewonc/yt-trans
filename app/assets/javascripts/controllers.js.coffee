@@ -11,5 +11,6 @@ ytControllers.controller 'VideosShowCtrl', ['$scope', 'Video', ($scope, Video) -
   $scope.videos = Video.query()
   $scope.loadVideo = (name) -> 
     $scope.code = name
+    return 
   # needs to update with the top video or something. or pull from URL
 ]
