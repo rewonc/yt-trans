@@ -13,9 +13,9 @@ ytDirectives.directive 'ytPlayer', ($sce) ->
           current = event.offsetX
           max = event.currentTarget.clientWidth
           percentage = current / max
-          console.log scope
-          ##scope.timer = percentage
-
+          ##console.log scope
+          scope.timer = percentage
+          scope.$apply();
         #can insert the event listeners here...
         scope.$watch 'code', (newVal) ->
           if newVal
