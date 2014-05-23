@@ -1,8 +1,27 @@
-<div ng-controller="VideosCtrl">  
-  <ul>
-    <li ng-repeat="video in videos">
-      <a href="<%= videos_path %>/{{video.id}}">{{video.title}} .</a>
-      <p>{{video.description}}</p>
-    </li>
-  </ul>
+<div ng-controller="VideosIndexCtrl">  
+  <div class="row">
+    <div class="col-md-2">
+       <!--Sidebar content-->
+          Language: 
+          <select ng-model="language">
+            <option value="japanese">Japanese</option>
+            <option value="chinese">Chinese</option>
+          </select> 
+          Search: <input ng-model="query">
+          Sort by:
+          <select ng-model="orderProp">
+            <option value="title">Alphabetical</option>
+            <option value="views">Most views</option>
+          </select>
+
+    </div>
+    <div class="col-md-10">
+        <ul>
+          <li ng-repeat="video in videos | orderBy:orderProp | filter:query | filter:language">
+            <a href="<%= videos_path %>/{{video.id}}">{{video.title}} .</a>
+            <p>{{video.description}}</p>
+          </li>
+        </ul>
+    </div>
+  </div>
 </div>
