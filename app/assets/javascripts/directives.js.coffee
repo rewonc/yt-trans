@@ -8,8 +8,13 @@ ytDirectives.directive 'ytPlayer', ($sce) ->
     templateUrl: "yt-player.html",
     link: (scope, element, attrs) ->
         scope.var2 = 'hi'
-        console.log scope
-        element.find('#button1').click () -> alert('howdy')
+        scope.timer = 0.55
+        element.find('#timerbar').click (event) -> 
+          current = event.offsetX
+          max = event.currentTarget.clientWidth
+          console.log percentage = current / max
+          scope.timer = percentage
+
         #can insert the event listeners here...
         scope.$watch 'code', (newVal) ->
           if newVal
