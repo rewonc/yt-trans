@@ -22,3 +22,6 @@ ytDirectives.directive 'ytPlayer', ($sce) ->
             scope.url = $sce.trustAsResourceUrl "http://www.youtube.com/embed/" + newVal
           
   }
+
+##You should separate concerns here. Load the video separately, load the timer and controls 
+##separately, load the links separately. Should be diff functions. 
