@@ -1,21 +1,31 @@
 <div ng-controller="VideosIndexCtrl">  
   <div class="row">
-    <div class="col-md-2">
-       <!--Sidebar content-->
-          Language: 
-          <select ng-model="language">
-            <option value="japanese">Japanese</option>
-            <option value="chinese">Chinese</option>
-          </select> 
-          Search: <input ng-model="query">
-          Sort by:
-          <select ng-model="orderProp">
-            <option value="title">Alphabetical</option>
-            <option value="views">Most views</option>
-          </select>
+    <div class="col-sm-12">
+      <ol class="breadcrumb">
+        <li class="active">All</li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Reader</a></li>
+        <div class="pull-right">
+         <input ng-model="query" placeholder="Search"/>
+        </div>
 
+        <div class="pull-right">Sort by:
+          <select ng-model="orderProp">
+            <option value="views">Trending</option>
+            <option value="title">Top</option>
+            <option value="views">New</option>
+          </select>
+          &nbsp; &nbsp;
+        </div>
+        
+      </ol>
+
+      
     </div>
-    <div class="col-md-10">
+  </div>
+      
+  <div class="row">
+    <div class="col-sm-12">
         <ul>
           <li ng-repeat="video in videos | orderBy:orderProp | filter:query | filter:language">
             <a href="<%= videos_path %>/{{video.id}}">{{video.title}} .</a>

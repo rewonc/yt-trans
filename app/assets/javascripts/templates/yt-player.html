@@ -5,35 +5,198 @@
       <div style="height:380px;">
         <iframe style="overflow:hidden;height:100%;width:100%" width="100%" height="100%" ng-src="{{url}}" frameborder="0" allowfullscreen></iframe>
       </div>
-      <div>Graphical timeline editor <br /><br /><br /><br /></div>
+      <div>
+        <em></em>
+        <br /><br /><br /><br />
+      </div>
     </div>
 
     
     <div class="col-sm-12 col-md-5">
       <div class="row">
-        <div class="col-md-3">Japanese</div>
-        <div class="col-md-4 col-md-offset-5">Help (loads vid) / Actions (upload subtitles, download to anki)</div>
+        
+        
+        <div class="pull-right">  
+          <div class="btn-group">
+            <button type="button" class="btn btn-default">Help</button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Actions
+                <span class="caret"></span>
+              </button>
+              <ul class="pull-right dropdown-menu">
+                <li><a href="#">Upload subtitles from file</a></li>
+                <li><a href="#">Modify keyboard shortcuts</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-link">Japanese</button>
+            <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
-      <div class="row">
-        <div class="col-md-9"><textarea rows="4" class="form-control"> </textarea></div>
-        <div class="col-md-3">Plus button to add</div>
+
+      <div class="row captions-add">
+        <div class="input-group input-group-lg">
+          <input class="form-control" placeholder="Enter your subtitle and press enter"></input>
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">+</button>
+          </span>
+        </div>
       </div>
-      <div class="row events-editor">
-        <ul>
-          <li>Hi</li>
-          <li>hi2</li>
+
+      <!--
+      <div class="row captions-add">
+        <div class="col-md-9 no-padding"><textarea rows="4" class="form-control"> </textarea></div>
+        <div class="col-md-3 no-padding">
+          <button type="button" class="btn btn-primary btn-lg btn-block">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+        </div>
+      </div>
+    -->
+
+      <div class="row captions-editor">
+        <ul class="subtitles list-unstyled">
+          <li class="panel panel-info">
+            <span class="start">3.45 &nbsp;</span>
+            <span class="end">7.34</span>
+            <div class="subtitle"><span class="subtext">こんにちは。お元気ですか。</span><span class="submenu pull-right"><span class="glyphicon glyphicon-flag"> <span class="glyphicon glyphicon-remove"></span></span></div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">7.36 &nbsp;</span>
+            <span class="end">11.44</span>
+            <div class="subtitle">おはようございます。元気ですよ。<span class="submenu pull-right"> <span class="glyphicon glyphicon-flag">  <span class="glyphicon glyphicon-remove"></span></span></div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">11.45 &nbsp;</span>
+            <span class="end">18.22</span>
+            <div class="subtitle">君、マジでヤバいよ。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">19.00 &nbsp;</span>
+            <span class="end">26.00</span>
+            <div class="subtitle">え、なんでなんで。え、分からない。え。なんで。akdaksn92m asldmk2m2io 02meomkalsfda m2meqmlksd</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
+          <li class="panel panel-info">
+            <span class="start">28.00 &nbsp;</span>
+            <span class="end">38.00</span>
+            <div class="subtitle">俺の友達ね、マジでヤバいから。</div>
+          </li>
         </ul>
       </div>
+
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-3">Options: pause while typing<br /> Slow down playback</div>
-    <div class="col-md-3">Shortcut guide: cmd q is move back 5 secs, etc</div>
-    <div class="col-md-3 col-md-offset-3">Save / Publish</div>
+    <div class="col-md-3">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" checked=""> Pause while typing
+        </label>
+      </div>
+      <div class="playback-speed">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default">slow</button>
+          <button type="button" class="btn btn-default active">normal</button>
+          <button type="button" class="btn btn-default">fast</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <br />
+          <small><em>Keyboard shortcuts:</em>
+            <br />
+          <kbd>cmd</kbd> + <kbd>space</kbd>: pause/play <br />
+          <kbd>cmd</kbd> + <kbd>A</kbd>: rewind 5 seconds <br />
+          </small>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Dictionary lookup</h4>
+      <p>To see Japanese to English dictionary results, highlight a word and press <kbd>Cmd</kbd> + <kbd>D</kbd></p>
+    </div>
+    <div class="col-md-3 text-right">
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-lg">Save</button>
+          <button type="button" class="btn btn-success btn-lg">Publish</button>
+        </div>
+
+      </div>
   </div>
     
-    <br /><br /><br />
+
+
+
+
+
+
+    <br /><br /><br /> <br /><br /><br /> <br /><br /><br />
 
 
 
