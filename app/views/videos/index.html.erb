@@ -1,40 +1,81 @@
 <div ng-controller="VideosIndexCtrl">  
   <div class="row">
-    <div class="col-sm-12">
-     
-
-        <div class="pull-right">
-         <input ng-model="query" placeholder="Search"/>
+    <div class="col-xs-12">
+      <div class="form-inline">
+        <div class="form-group">
+          Showing videos in 
         </div>
-
-        <div class="pull-right">Sort by:
-          <select ng-model="orderProp">
-            <option value="views">Trending</option>
-            <option value="title">Top</option>
-            <option value="views">New</option>
+        <div class="form-group">
+          <select class="form-control">
+            <option>Japanese</option>
           </select>
+        </div>
+        <div class="form-group">
           &nbsp; &nbsp;
         </div>
-      
-
-       <ol class="breadcrumb">
-        <li class="active">All</li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Reader</a></li>  
-      </ol>
-
-      
+        <div class="form-group">
+          <a href="#" data-toggle="collapse" data-target="#filters">Filters </a>
+        </div>
+      </div>
     </div>
   </div>
-      
   <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div id="filters" class="collapse">
+        <dl class="dl pull-left">
+          <dt>By date</dt>
+          <dd>Last week</dd>
+          <dd>Last month</dd>
+          <dd>Last year</dd>
+          <dd>All time</dd>
+        </dl>
+        <dl class="dl">
+          <dt>Sort by</dt>
+          <dd>Trending</dd>
+          <dd>Most studied</dd>
+          <dd>Most viewed</dd>
+          <dd>Most complete</dd>
+          <dd>Least complete</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="row listing">
     <div class="col-sm-12">
-        <ul>
-          <li ng-repeat="video in videos | orderBy:orderProp | filter:query | filter:language">
-            <a href="<%= videos_path %>/{{video.id}}">{{video.title}} .</a>
+      <ul class="media-list">
+        <li ng-repeat="video in videos | orderBy:orderProp | filter:query | filter:language" class="media">
+          
+
+          <div class="pull-right sniprate">
+            <div class="text-center"><%= image_tag('snip.png') %></div>
+            <p class="text-center">131</p>
+          </div>
+          <a class="pull-left video-image" href="<%= videos_path %>/{{video.id}}">
+            <img class="media-object" ng-src="http://img.youtube.com/vi/{{video.name}}/mqdefault.jpg" alt="...">
+            <span class="duration">5:06</span>
+          </a>
+          <div class="media-body">
+            <h3 class="media-heading"><a href="<%= videos_path %>/{{video.id}}">{{video.title}}</a></h3>
             <p>{{video.description}}</p>
-          </li>
-        </ul>
+            <p>
+              <ul class="list-inline">
+                <li><strong>Tags</strong></li>
+                <li>Informal langauge</li>
+                <li>Blah</li>
+                <li>Blah</li>
+              </ul>
+            </p>
+            <p>
+               <ul class="list-inline">
+                <li>Source views: {{video.views}}</li>
+                <li>Transcription: <label class="label label-success">79%</label></li>
+                <li>Translation: <label class="label label-danger">52%</label></li>
+              </ul>
+            </p>
+
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

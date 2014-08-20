@@ -4,7 +4,7 @@
 
 
 
-//general
+//header and footer
 .navbar-header{
   color:$red;
   img{
@@ -16,6 +16,48 @@
 footer{
   margin-top:100px;
 }
+
+//video index page
+#filters{
+  padding:10px;
+  dl{
+    margin-right:50px;
+  }
+}
+
+.listing{
+  margin-top:25px;
+  .media-list li img{
+    width:250px;
+  }
+  li{
+    margin-bottom:10px;
+  }
+  .video-image{
+    position:relative;
+    .duration{
+      position:absolute;
+      bottom:3px;
+      right:3px;
+      color:#fff;
+      background-color:rgba(22,22,22,0.5);
+      padding:2px;
+    }
+  }
+  .media-list .sniprate{
+    //background-color:#EEE;
+    margin:0px;
+    margin-right:20px;
+    padding-right:3px;
+    padding-left:3px;
+    height:112px;
+    img{
+      width:32px;
+      margin-top:40px;
+    }
+  }
+}
+
 
 
 
