@@ -1,18 +1,22 @@
 <div ng-controller="VideosShowCtrl"> 
   {{loadVideo("<%= @video.name %>")}}
   <div class="container">
-    <h2><%= @video.title %></h2>
-    <div yt-player code="code">
-    </div>
-    
-    <h4>Load different videos</h4>
-   
-    <ul class="list-inline">
-      <li ng-repeat="video in videos">
-        <a ng-click="loadVideo(video.name)" class="" href="">{{video.title}}</a>
-      </li>
-    </ul>  
 
-    <em>current video id: </em><code>{{code}}</code>
+    <div class="video-title-bar">
+      <h2><%= @video.title %> </h2>
+    </div>
+
+    <div yt-player code="code" class="yt-player"></div>
+    
+    <div class="next-video">
+      <h3>Load different videos</h3>
+      <ul class="list-inline">
+        <li ng-repeat="video in videos">
+          <a ng-click="loadVideo(video.name)" class="" href="">{{video.title}}</a>
+        </li>
+        <li><em>current video id: </em><code>{{code}}</code></li>
+      </ul> 
+    </div>
+       
   </div>
 </div>
