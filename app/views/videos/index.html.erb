@@ -44,7 +44,7 @@
     <div class="col-sm-12">
       <ul class="media-list">
         <li ng-repeat="video in videos | orderBy:orderProp | filter:query | filter:language" class="media">
-          <div class="row">
+          <div class="row media-list-item">
             <div class="video-image col-xs-12 col-sm-5 col-md-4 col-lg-3">
               <a href="<%= videos_path %>/{{video.id}}">
                 <img class="media-object" ng-src="http://img.youtube.com/vi/{{video.name}}/mqdefault.jpg" alt="...">
@@ -55,27 +55,25 @@
               <div class="media-body">
                 <h3 class="media-heading"><a href="<%= videos_path %>/{{video.id}}">{{video.title}}</a></h3>
                 <p>{{video.description}}</p>
-                <p>
+                <div class="footer">
                   <ul class="list-inline">
                     <li><strong>Tags</strong></li>
                     <li>Informal langauge</li>
                     <li>Blah</li>
                     <li>Blah</li>
                   </ul>
-                </p>
-                <p>
                    <ul class="list-inline">
                     <li><small>Source views: {{video.views}}</small></li>
                     <li><small>Transcription: <label class="label label-success">79%</label></small></li>
                     <li><small>Translation: <label class="label label-danger">52%</label></small></li>
                   </ul>
-                </p>
+                </div>
               </div>
             </div>
             <div class="col-xs-2 col-sm-1 col-md-2 col-lg-3">
               <div class="pull-left sniprate">
-                <div class="text-center"><%= image_tag('snip.png') %></div>
-                <p class="text-center"><span>131</span> times</p>
+                <div class="text-center"><i class="fa fa-scissors fa-3x"></i></div>
+                <p class="text-center"><span class="scissors-count">131</span></p>
               </div>
             </div>
           </div>

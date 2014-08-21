@@ -14,7 +14,6 @@
     }
     .video-image{
       position:relative;
-      margin-bottom:10px;
       img{
         width:100%;
       }
@@ -27,11 +26,27 @@
         padding:2px;
       }
     }
-    .media-list .sniprate{
-      height:112px;
-      img{
-        width:32px;
-        margin-top:40px;
+    .media-list {
+      .media-list-item:hover{
+        background-color:#F8F8F8;
+      }
+      .media-body{
+        position:relative;
+        height: 160px;
+        padding:5px;
+        .media-heading{
+          padding-top:5px;
+        }
+        .footer{
+          position:absolute;
+          bottom:7px;
+        }
+      }
+      .sniprate{
+        height:160px;
+        i{
+          margin-top:50px;
+        }
       }
     }
   }
@@ -41,10 +56,62 @@
   .yt-player{
     .embed-responsive-wrapper{
       max-width:940px;
+      .subtitles-bar{
+        .subtitles{
+          h2{
+            margin:0px;
+          }
+        }
+        .subtitles-desc{
+          h4{
+            margin:0px;
+          }
+        }
+        .subtitles-row{
+          margin-bottom:15px;
+          cursor:pointer;
+          .subtitles-edit{
+            visibility:hidden;
+          }
+        }
+        .subtitles-row:hover > .subtitles-edit{
+          visibility:visible;
+        }
+        .subtitles-desc-row{
+          cursor:pointer;
+          .subtitles-desc-edit{
+            visibility:hidden;
+          }
+        }
+        .subtitles-desc-row:hover > .subtitles-desc-edit{
+          visibility:visible;
+        }
+        .snipper{ 
+          padding-top:8px;  
+          .snipper-link{
+            color:#CCC;
+            cursor:pointer;
+          }
+          .snipper-link:hover{
+            color:$mediumRed;
+            text-decoration:none;
+          }
+        }
+        min-height:100px;
+        padding-bottom:40px
+      }
+      .explanations-row{
+        .explanations{
+          padding:10px;
+        }
+      }
+        
     }
-    .snipper{   
-    }
+
+
   }
+
+
   .captions-add{
     margin-top:10px;
     margin-bottom:10px;
