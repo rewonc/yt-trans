@@ -7,11 +7,10 @@ ytControllers.controller 'VideosIndexCtrl', ['$scope', 'Video', ($scope, Video) 
   # needs to update with the top video or something. or pull from URL
 ]
 
-ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', 'VideosShowInitializer', ($scope, $youtube, Video, VideosShowInitializer) ->
+ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', '$interval', 'VideosShowInitializer', ($scope, $youtube, Video, $interval, VideosShowInitializer) ->
   $scope.videos = Video.query()
   $scope.video = VideosShowInitializer
   $scope.playerVars = {
-    controls: 0,
     cc_load_policy: 0,
     iv_load_policy: 3,
     origin: 'http://localhost:3000',
@@ -19,14 +18,41 @@ ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', 'Vide
     showinfo:0
   }
   $scope.code = VideosShowInitializer.name
-  $scope.timer = 0.00
+  $scope.timer = 0
   $scope.timerFn = (event) -> 
-    console.log 'hi'
     current = event.offsetX
     max = event.currentTarget.clientWidth
     percentage = Math.round((current / max) * 1000)/1000
-    $scope.timer = percentage
+    $scope.timer = percentage * $scope.duration
+    $youtube.player.seekTo($scope.timer, true)
+  $scope.timeWatchStop = () ->
+    if angular.isDefined($scope.timeWatch) 
+        $interval.cancel($scope.timeWatch);
+        $scope.timeWatch = undefined;
+  $scope.timeWatchStart = () ->
+    if angular.isDefined($scope.timeWatch) 
+      return;
+    else
+      $scope.timeWatch = $interval () ->
+        #get the time info from video, and then propogate
+        console.log 'hello'
+      , 200
   $scope.$on 'youtube.player.ready', () ->
     $youtube.player.playVideo()
+    $scope.duration = $youtube.player.getDuration()
+  $scope.$on 'youtube.player.ended', () ->
+    console.log 'ended'
+    $scope.timeWatchStop()
+  $scope.$on 'youtube.player.playing', () ->
+    console.log 'playing'
+    $scope.timeWatchStart()
+  $scope.$on 'youtube.player.paused', () ->
+    console.log 'paused'
+    $scope.timeWatchStop()
+  $scope.$on 'youtube.player.buffering', () ->
+    console.log 'buffering'
+    $scope.timeWatchStop()
+  $scope.$on 'youtube.player.queued', () ->
+    console.log 'queued'
 ]
 
