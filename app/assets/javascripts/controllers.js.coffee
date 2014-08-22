@@ -7,9 +7,17 @@ ytControllers.controller 'VideosIndexCtrl', ['$scope', 'Video', ($scope, Video) 
   # needs to update with the top video or something. or pull from URL
 ]
 
-ytControllers.controller 'VideosShowCtrl', ['$scope', 'Video', 'VideosShowInitializer', ($scope, Video, VideosShowInitializer) ->
+ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', 'VideosShowInitializer', ($scope, $youtube, Video, VideosShowInitializer) ->
   $scope.videos = Video.query()
   $scope.video = VideosShowInitializer
+  $scope.playerVars = {
+    controls: 0,
+    cc_load_policy: 0,
+    iv_load_policy: 3,
+    origin: 'http://localhost:3000',
+    rel: 0,
+    showinfo:0
+  }
   $scope.code = VideosShowInitializer.name
   $scope.timer = 0.00
   $scope.timerFn = (event) -> 
@@ -18,5 +26,7 @@ ytControllers.controller 'VideosShowCtrl', ['$scope', 'Video', 'VideosShowInitia
     max = event.currentTarget.clientWidth
     percentage = Math.round((current / max) * 1000)/1000
     $scope.timer = percentage
+  $scope.$on 'youtube.player.ready', () ->
+    $youtube.player.playVideo()
 ]
 
