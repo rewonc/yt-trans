@@ -11,13 +11,12 @@ ytControllers.controller 'VideosShowCtrl', ['$scope', 'Video', 'VideosShowInitia
   $scope.videos = Video.query()
   $scope.video = VideosShowInitializer
   $scope.code = VideosShowInitializer.name
-  $scope.timer = 0.55
+  $scope.timer = 0.00
   $scope.timerFn = (event) -> 
+    console.log 'hi'
     current = event.offsetX
     max = event.currentTarget.clientWidth
     percentage = Math.round((current / max) * 1000)/1000
-    scope.timer = percentage
-    scope.$apply()
-
+    $scope.timer = percentage
 ]
 
