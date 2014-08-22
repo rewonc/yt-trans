@@ -23,6 +23,13 @@
               <div class="timeline">
                 <div class="progress" id="timerbar" ng-click="timerFn($event)">
                   <div class="progress-bar" role="progressbar" aria-valuenow="{{timer}}" aria-valuemin="0" aria-valuemax="{{duration}}" style="width: {{100 * timer / duration}}%;">
+                    <ul class="progress-layover-wrapper">
+                      <li class="progress-layover" data-subtitle-id="1" style="left:25px;width:100px;">blah0</li>
+                      <li class="progress-layover" data-subtitle-id="2" style="left:35px;width:30px;">blah1</li>
+                      <li class="progress-layover" data-subtitle-id="3" style="left:280px;width:100px;">blah2</li>
+                      <li class="progress-layover" data-subtitle-id="4" style="left:1px;width:80px;">blah3</li>
+                      <li class="progress-layover" data-subtitle-id="5" style="left:500px;width:90px;">blah4</li>
+                    </ul>
                   </div>
                 </div>
               </div>

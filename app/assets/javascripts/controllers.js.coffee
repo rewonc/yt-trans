@@ -17,7 +17,7 @@ ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', '$int
     rel: 0,
     showinfo:0
   }
-  $scope.code = VideosShowInitializer.name
+  $scope.code = VideosShowInitializer.code
   $scope.timer = 0
   $scope.timerFn = (event) -> 
     current = event.offsetX

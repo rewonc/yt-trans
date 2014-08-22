@@ -1,12 +1,20 @@
 Youtuber::Application.routes.draw do
+
+  resources :snippets
+
   scope :api do
     get "/videos(.:format)" => "videos#index"
     get "/videos/:id(.:format)" => "videos#show"
+    get "/videos/:video_id/snippets(.:format)" => "snippets#index"
+    get "/videos/:video_id/snippets/:id(.:format)" => "snippets#show"
   end
 
   root "videos#index"
   
-  resources :videos
+  resources :videos do
+    resources :snippets
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

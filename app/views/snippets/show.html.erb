@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Starttime:</strong>
+  <%= @snippet.starttime %>
+</p>
+
+<p>
+  <strong>Endtime:</strong>
+  <%= @snippet.endtime %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @snippet.video %>
+</p>
+
+<%= link_to 'Edit', edit_snippet_path(@snippet) %> |
+<%= link_to 'Back', snippets_path %>

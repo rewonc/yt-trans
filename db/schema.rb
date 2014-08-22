@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523025258) do
+ActiveRecord::Schema.define(version: 20140822221645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "snippets", force: true do |t|
+    t.float    "starttime"
+    t.float    "endtime"
+    t.integer  "video_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "snippets", ["video_id"], name: "index_snippets_on_video_id", using: :btree
 
   create_table "videos", force: true do |t|
     t.string   "name"
@@ -25,6 +35,9 @@ ActiveRecord::Schema.define(version: 20140523025258) do
     t.string   "description"
     t.integer  "views"
     t.string   "language"
+    t.string   "code"
+    t.string   "tags"
+    t.integer  "duration"
   end
 
   add_index "videos", ["name"], name: "index_videos_on_name", unique: true, using: :btree

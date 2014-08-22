@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :"vid id" %><br>
+    <%= f.label :"author name" %><br>
     <%= f.text_field :name %><br>
     <%= f.label :url %><br>
     <%= f.text_field :url %><br>
@@ -24,6 +24,12 @@
     <%= f.text_field :views %><br>
     <%= f.label :language %><br>
     <%= f.text_field :language %> // type in japanese, chinese, etc<br>
+    <%= f.label :code %><br>
+    <%= f.text_field :code %> // youtube code<br>
+    <%= f.label :tags %><br>
+    <%= f.text_field :tags %> // type in an array<br>
+    <%= f.label :duration %><br>
+    <%= f.number_field :duration %> // type in an integer number of seconds<br>
   </div>
   <div class="actions">
     <%= f.submit %>

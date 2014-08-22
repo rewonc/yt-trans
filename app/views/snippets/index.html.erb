@@ -1,0 +1,31 @@
+<h1>Listing snippets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Starttime</th>
+      <th>Endtime</th>
+      <th>Video</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @snippets.each do |snippet| %>
+      <tr>
+        <td><%= snippet.starttime %></td>
+        <td><%= snippet.endtime %></td>
+        <td><%= snippet.video %></td>
+        <td><%= link_to 'Show', snippet %></td>
+        <td><%= link_to 'Edit', edit_snippet_path(snippet) %></td>
+        <td><%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snippet', new_snippet_path %>
