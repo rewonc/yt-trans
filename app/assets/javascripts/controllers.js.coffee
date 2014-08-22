@@ -35,7 +35,7 @@ ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', '$int
     else
       $scope.timeWatch = $interval () ->
         #get the time info from video, and then propogate
-        console.log 'hello'
+        $scope.timer = $youtube.player.getCurrentTime()
       , 200
   $scope.$on 'youtube.player.ready', () ->
     $youtube.player.playVideo()
