@@ -4,5 +4,5 @@ var app = angular.module('YouTuber', [
   'ytControllers',
   'ytFilters',
   'ytServices',
-  'ytDirectives'
+  'youtube-embed'
 ]);

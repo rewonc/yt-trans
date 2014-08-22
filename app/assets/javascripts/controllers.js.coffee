@@ -9,6 +9,7 @@ ytControllers.controller 'VideosIndexCtrl', ['$scope', 'Video', ($scope, Video) 
 
 ytControllers.controller 'VideosShowCtrl', ['$scope', 'Video', ($scope, Video) ->
   $scope.videos = Video.query()
+  $scope.theBestVideo = 'sMKoNBRZM1M';
   $scope.loadVideo = (name) -> 
     $scope.code = name
     return 
