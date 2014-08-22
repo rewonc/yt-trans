@@ -17,14 +17,11 @@
 
 //= require bootstrap
 
-//= require angular-rails-templates
 //= require angular-youtube-embed
-//= require_tree ./templates
 
 //= require app
 
 //= require controllers
-//= require directives
 //= require filters
 //= require services
 

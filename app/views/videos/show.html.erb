@@ -1,21 +1,87 @@
+<script>
+  <%= render "videos_service.js.erb" %>
+</script>
+
 <div ng-controller="VideosShowCtrl"> 
-  {{loadVideo("<%= @video.name %>")}}
+  {{video}}
   <div class="container">
 
     <div class="video-title-bar">
       <h2><%= @video.title %> </h2>
     </div>
 
-    <!--<div yt-player code="code" class="yt-player"></div>-->
-    <youtube-video id="best-vid" video-id="theBestVideo"></youtube-video>
+    <div class="yt-player">
+      <div class="row">  
+        <div class="col-sm-12">
+          <div class="embed-responsive-wrapper">
+            <div class="embed-responsive embed-responsive-16by9">
+               <youtube-video id="video-player" video-id="code"></youtube-video>
+            </div>
+            <div class="panel panel-default">
+              <div class="timeline">
+                <div class="progress" id="timerbar">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="{{timer*100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{timer*100}}%;">
+                  </div>
+                </div>
+              </div>
+              <div class="row subtitles-bar">
+                <div class="col-xs-12 col-sm-9 col-sm-push-3">
+                  <div class="row subtitles-row">
+                    <div class="col-xs-12 col-sm-10 subtitles">
+                      <h2>日本語の字幕はこちらにあるだろう？</h2>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 subtitles-edit">
+                      <i class="fa fa-lg fa-thumbs-up"></i> &nbsp; <i class="fa fa-lg fa-thumbs-down"></i> &nbsp; <a href="#">More</a>
+                    </div>
+                  </div>
+                  <div class="row subtitles-desc-row">
+                    <div class="col-xs-12 col-sm-10 subtitles-desc">
+                      <h4>The english subtitling, then, would go here.</h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 subtitles-desc-edit">
+                      <i class="fa fa-lg fa-thumbs-up"></i> &nbsp; <i class="fa fa-lg fa-thumbs-down"></i> &nbsp; <a href="#">More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-sm-pull-9 snipper text-center">
+                  <a href="#" class="snipper-link">
+                    <div class="text-center"><i class="fa fa-3x fa-scissors"></i></div>
+                    <div>Save snippet</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="row explanations-row">
+                <div class="col-xs-12">
+                  <div class="explanations">
+                    <p>Notes on this snippet (12) </p> 
+                    <p>WIZYWIG edit.  Have ppl comment and upvote and etc. Name at the bottom. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-player-options">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked="">Show english captions
+                </label>
+              </div>
+              percentage of video played: {{timer}}.  Percentage: <input type="number" ng-model="timer" min="0" max="1" step="0.01"></input>  Minute and second count: xxx.  
+            </div>
+          </div>
+        </div>
+      </div>
+         
+    </div>
     
+
     <div class="next-video">
       <h3>Load different videos</h3>
       <ul class="list-unstyled">
         <li ng-repeat="video in videos">
-          <a ng-click="loadVideo(video.name)" class="" href="">{{video.title}}</a>  21,000,000 source views. 65% annotated, 12 comments.
+          <a href="../videos/{{video.id}}" class="">{{video.title}}</a>  21,000,000 source views. 65% annotated, 12 comments.
         </li>
-        <!--<li><em>current video id: </em><code>{{code}}</code></li>-->
       </ul> 
     </div>
        
