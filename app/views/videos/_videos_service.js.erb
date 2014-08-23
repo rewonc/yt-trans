@@ -1,3 +1,3 @@
 app.service('VideosShowInitializer', function(){
-  return [<%= @video.to_json.html_safe %>, <%= @video.snippets.to_json.html_safe %>];
+  return [<%= @video.to_json.html_safe %>, <%= @video.snippets.to_json(include: :comments).html_safe %>];
 });

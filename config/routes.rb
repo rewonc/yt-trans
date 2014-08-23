@@ -1,12 +1,18 @@
 Youtuber::Application.routes.draw do
 
-  resources :snippets
+  resources :comments
+
+  resources :snippets do
+    resources :comments
+  end
 
   scope :api do
     get "/videos(.:format)" => "videos#index"
     get "/videos/:id(.:format)" => "videos#show"
     get "/videos/:video_id/snippets(.:format)" => "snippets#index"
     get "/videos/:video_id/snippets/:id(.:format)" => "snippets#show"
+    get "/snippets/:snippet_id/comments(.:format)" => "comments#index"
+    get "/snippets/:snippet_id/comments/:id(.:format)" => "comments#show"
   end
 
   root "videos#index"

@@ -29,41 +29,96 @@
                   </div> 
                 </div>
               </div>
-              <div class="row subtitles-bar">
+              <div class="row subtitles-bar new-subtitle" ng-hide="hasSnippet">
                 <div class="col-xs-12 col-sm-9 col-sm-push-3">
                   <div class="row subtitles-row">
                     <div class="col-xs-12 col-sm-10 subtitles">
-                      <h2>日本語の字幕はこちらにあるだろう？</h2>
+                      <h2><input type="text" placeholder="日本語はここ"></input></h2>
                     </div>
                     <div class="col-xs-12 col-sm-2 subtitles-edit">
-                      <i class="fa fa-lg fa-thumbs-up"></i> &nbsp; <i class="fa fa-lg fa-thumbs-down"></i> &nbsp; <a href="#">More</a>
+                      <button class="button">Save</button>
                     </div>
                   </div>
                   <div class="row subtitles-desc-row">
                     <div class="col-xs-12 col-sm-10 subtitles-desc">
-                      <h4>The english subtitling, then, would go here.</h4>
+                      <h4><input type="text" placeholder="English here"></input></h4>
                     </div>
                     <div class="col-xs-12 col-sm-2 subtitles-desc-edit">
-                      <i class="fa fa-lg fa-thumbs-up"></i> &nbsp; <i class="fa fa-lg fa-thumbs-down"></i> &nbsp; <a href="#">More</a>
+                      <button class="button">Save</button>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-sm-pull-9 snipper text-center">
                   <a href="#" class="snipper-link">
-                    <div class="text-center"><i class="fa fa-3x fa-scissors"></i></div>
-                    <div>Save snippet</div>
+                    <div class="text-center"><i class="fa fa-3x fa-star"></i></div>
+                    <div>Favorite</div>
                   </a>
                 </div>
-              </div>
-
-              <div class="row explanations-row">
-                <div class="col-xs-12">
-                  <div class="explanations">
-                    <p>Notes on this snippet (12) </p> 
-                    <p>WIZYWIG edit.  Have ppl comment and upvote and etc. Name at the bottom. </p>
+                <div class="row annotations-row">
+                  <div class="col-xs-12">
+                    <br /><br />
+                    <h5>Other annotations (0) </h5> 
+                    <div class="annotations-wrapper">
+                      <div class="col-xs-12 col-sm-10 annotations">
+                        <p><input type="text" placeholder="Enter comments here"></input></p>
+                      </div>
+                      <div class="col-xs-12 col-sm-2 annotations-edit">
+                        <button class="button">Save</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <div class="row subtitles-bar edit-subtitle" ng-repeat="snippet in snippets" ng-show="hasSnippet && currentSnippet[0].id === snippet.id" >
+                <div class="col-xs-12 col-sm-9 col-sm-push-3">
+                  <div class="row subtitles-row">
+                    <div class="subtitles-wrapper" ng-repeat="comment in snippet.comments | filter:{category:'transcription'}">
+                      <div class="col-xs-12 col-sm-10 subtitles">
+                        <h2>{{comment.content}}</h2>
+                      </div>
+                      <div class="col-xs-12 col-sm-2 subtitles-edit">
+                        <i class="fa fa-lg fa-thumbs-up"></i> &nbsp; <a href="#" class="votes-count">{{comment.votes}}</a> &nbsp; <i class="fa fa-lg fa-thumbs-down"></i> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row subtitles-desc-row">
+                    <div class="subtitles-desc-wrapper" ng-repeat="comment in snippet.comments | filter:{category:'translation'}">
+                      <div class="col-xs-12 col-sm-10 subtitles-desc">
+                        <h4>{{comment.content}}</h4>
+                      </div>
+                      <div class="col-xs-12 col-sm-2 subtitles-desc-edit">
+                        <i class="fa fa-lg fa-thumbs-up"></i> &nbsp; <a href="#" class="votes-count">{{comment.votes}}</a> &nbsp; <i class="fa fa-lg fa-thumbs-down"></i> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-sm-pull-9 snipper text-center">
+                  <a href="#" class="snipper-link">
+                    <div class="text-center"><i class="fa fa-3x fa-star"></i></div>
+                    <div>Favorite</div>
+                  </a>
+                </div>
+
+                <div class="row annotations-row">
+                  <div class="col-xs-12">
+                    <br /><br />
+                    <h5>Other annotations ({{$filter('filter')(snippet.comments, {category: "comment"}, true).length.toString()}}) </h5> 
+                    <div class="annotations-wrapper" ng-repeat="comment in snippet.comments | filter:{category:'annotation'}">
+                      <div class="col-xs-12 col-sm-10 annotations">
+                        <p>{{comment.content}}</p>
+                      </div>
+                      <div class="col-xs-12 col-sm-2 annotations-edit">
+                        <i class="fa fa-lg fa-thumbs-up"></i> &nbsp; <a href="#" class="votes-count">{{comment.votes}}</a> &nbsp; <i class="fa fa-lg fa-thumbs-down"></i> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              
             </div>
 
             <!--<div class="video-player-options">

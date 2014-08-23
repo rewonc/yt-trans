@@ -48,7 +48,7 @@
             <div class="video-image col-xs-12 col-sm-5 col-md-4 col-lg-3">
               <a href="<%= videos_path %>/{{video.id}}">
                 <img class="media-object" ng-src="http://img.youtube.com/vi/{{video.code}}/mqdefault.jpg" alt="...">
-                <span class="duration">5:06</span>
+                <span class="duration">{{Math.floor(video.duration/60)}}:{{video.duration%60}}</span>
               </a>
             </div>
             <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6">
@@ -63,7 +63,7 @@
                     <li>Blah</li>
                   </ul>
                    <ul class="list-inline">
-                    <li><small>Source views: {{video.views}}</small></li>
+                    <li><small>Source views: {{video.views | number}}</small></li>
                     <li><small>Transcription: <label class="label label-success">79%</label></small></li>
                     <li><small>Translation: <label class="label label-danger">52%</label></small></li>
                   </ul>
