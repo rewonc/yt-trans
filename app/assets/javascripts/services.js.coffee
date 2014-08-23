@@ -5,5 +5,5 @@ ytServices.factory 'Video', ['$resource', ($resource) ->
 ]
 
 ytServices.factory 'Snippet', ['$resource', ($resource) ->
-  $resource '/api/videos/:video_id/snippets/:id.json', {id: '@id', video_id: '@video_id'}
+  $resource '/api/videos/:video_id/snippets/:id.json', {video_id: '@video_id', id: '@id'}
 ]

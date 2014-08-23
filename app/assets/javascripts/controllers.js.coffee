@@ -7,9 +7,11 @@ ytControllers.controller 'VideosIndexCtrl', ['$scope', 'Video', ($scope, Video) 
   # needs to update with the top video or something. or pull from URL
 ]
 
-ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', '$interval', 'VideosShowInitializer', ($scope, $youtube, Video, $interval, VideosShowInitializer) ->
+ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', 'Snippet', '$interval', 'VideosShowInitializer', ($scope, $youtube, Video, Snippet, $interval, VideosShowInitializer) ->
   $scope.videos = Video.query()
-  $scope.video = VideosShowInitializer
+  $scope.video = VideosShowInitializer[0]
+  $scope.snippets = VideosShowInitializer[1]
+  console.log $scope.snippets
   $scope.playerVars = {
     cc_load_policy: 0,
     iv_load_policy: 3,
@@ -17,8 +19,9 @@ ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', '$int
     rel: 0,
     showinfo:0
   }
-  $scope.code = VideosShowInitializer.code
+  $scope.code = $scope.video.code
   $scope.timer = 0
+
   $scope.timerFn = (event) -> 
     current = event.offsetX
     max = event.currentTarget.clientWidth

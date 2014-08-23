@@ -110,15 +110,23 @@
       margin-bottom:15px;
       .progress{
         margin-bottom:0px;
+        position:relative;
         .progress-bar{
-          .progress-layover-wrapper{
-            position:relative;
-            list-style:none;
-            li{
-              background-color:green;
-              position:absolute;
-              left:0;
-            }
+
+        }
+        .progress-layover-wrapper{
+          position:absolute;
+          left:0;
+          top:0;
+          width:100%;
+          list-style:none;
+          list-style-type:none;
+          li{
+            background-color:green;
+            border-radius:20%;
+            list-style-type:none;
+            position:absolute;
+            left:0;
           }
         }
       }
