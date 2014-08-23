@@ -15,6 +15,11 @@ gem 'rails', '4.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+#heroku toolz
+gem 'rails_12factor'
+#use unicorn server
+gem 'unicorn'
+
 #use rspec
 gem "rspec-rails", "~> 2.14.0"
 
