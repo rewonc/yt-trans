@@ -3,9 +3,7 @@
 </script>
 
 <div ng-controller="VideosShowCtrl"> 
-  {{video}} <br />
-  {{timer}} / {{duration}}<br />
-  https://gdata.youtube.com/feeds/api/videos/U0CGsw6h60k
+ 
   <div class="container">
 
     <div class="video-title-bar">
@@ -75,6 +73,7 @@
                 </label>
               </div>
             </div>-->
+
           </div>
         </div>
       </div>
@@ -90,6 +89,11 @@
         </li>
       </ul> 
     </div>
-       
+       <br /><br /><br /><br /><br />
+    debug:<br />
+            <code> {{video}} <br />
+  {{timer}} / {{duration}}<br />
+  https://gdata.youtube.com/feeds/api/videos/{{video.code}}</code>
+
   </div>
 </div>
