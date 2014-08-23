@@ -26,10 +26,9 @@
                   </div>
                   <div class="progress-layover-wrapper">
                     <ul>
-                        <li ng-repeat="snippet in snippets" class="progress-layover" data-snippet-id="{{snippet.id}}" data-end="{{snippet.endtime}}" data-start="{{snippet.starttime}}" data-snippet-video-id="{{snippet.video_id}}" style="left: {{100 * snippet.starttime / duration}}%; width: {{100 * (snippet.endtime - snippet.starttime) / duration}}%;">&nbsp;</li>
+                        <li ng-repeat="snippet in snippets" class="progress-layover" data-snippet-id="{{snippet.id}}" data-end="{{snippet.endtime}}" data-start="{{snippet.starttime}}" data-snippet-video-id="{{snippet.video_id}}" style="left: {{100 * snippet.starttime / duration}}%; width: {{100 * (snippet.endtime - snippet.starttime) / duration}}%;" ng-click="snippetPlay($event, snippet.starttime)">&nbsp;</li>
                     </ul>
-                  </div>
-                    
+                  </div> 
                 </div>
               </div>
               <div class="row subtitles-bar">
