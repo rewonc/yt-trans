@@ -26,7 +26,6 @@ ytControllers.controller 'VideosShowCtrl', ['$scope', '$youtube', 'Video', 'Snip
     $scope.timer = time
     $youtube.player.seekTo($scope.timer, true)
   $scope.timerFn = (event) -> 
-    console.log event
     current = event.offsetX
     max = event.currentTarget.clientWidth
     percentage = Math.round((current / max) * 1000)/1000
