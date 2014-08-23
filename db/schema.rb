@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823012234) do
+ActiveRecord::Schema.define(version: 20140823163022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 20140823012234) do
     t.string   "code"
     t.string   "tags"
     t.integer  "duration"
+    t.integer  "votes"
+    t.string   "durationString"
+    t.integer  "percent"
   end
 
   add_index "videos", ["name"], name: "index_videos_on_name", unique: true, using: :btree

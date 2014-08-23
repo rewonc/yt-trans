@@ -3,3 +3,9 @@ class Video < ActiveRecord::Base
   serialize :tags
   has_many :snippets
 end
+
+
+=begin
+Video.create()
+
+=end

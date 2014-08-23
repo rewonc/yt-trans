@@ -2,7 +2,8 @@ ytControllers = angular.module 'ytControllers', []
 
 ytControllers.controller 'VideosIndexCtrl', ['$scope', 'Video', ($scope, Video) ->
   $scope.videos = Video.query()
-  $scope.orderProp = 'views'
+  console.log $scope.videos
+  $scope.orderProp = '-votes'
   $scope.language = 'japanese'
   $scope.Math = window.Math;
   # needs to update with the top video or something. or pull from URL
