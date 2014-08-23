@@ -12,14 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :"author name" %><br>
-    <%= f.text_field :name %><br>
     <%= f.label :url %><br>
     <%= f.text_field :url %><br>
     <%= f.label :title %><br>
     <%= f.text_field :title %><br>
     <%= f.label :description %><br>
     <%= f.text_field :description %><br>
+
+<br/><br /><br /><br /><strong>Admin</strong><br />
+    <%= f.label :"author name" %><br>
+    <%= f.text_field :name %><br>
     <%= f.label :views %><br>
     <%= f.text_field :views %><br>
     <%= f.label :language %><br>
@@ -30,6 +32,12 @@
     <%= f.text_field :tags %> // type in an array<br>
     <%= f.label :duration %><br>
     <%= f.number_field :duration %> // type in an integer number of seconds<br>
+    <%= f.label :votes %><br>
+    <%= f.number_field :votes %> int<br />
+    <%= f.label :durationString %><br>
+    <%= f.text_field :"durationString" %> str<br />
+    <%= f.label :percent %><br>
+    <%= f.number_field :"percent" %> int<br />
   </div>
   <div class="actions">
     <%= f.submit %>
