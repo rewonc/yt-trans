@@ -32,6 +32,9 @@
     .media-list {
       .media-list-item:hover{
         background-color:#F8F8F8;
+        .sniprate{
+          color:$mediumRed;
+        }
       }
       .media-body{
         position:relative;
