@@ -1,0 +1,22 @@
+app.service('VideosIndexInitializer', function(){
+
+  <% 
+  custom_video = []
+  #frozen
+  custom_video << {id: 1, description: 'The Frozen song, but in Japanese', code: "cvj3-MZO9Tw", durationString: "0:14", language: "japanese", name: "Disney Japan", tags: "music, animated", title: "Frozen - In Japanese", views: 12100192, votes: 32}
+  custom_video[0]['translations'] = [{startTime: 59.0, endTime: 73.0, shortTitle: "I'm gonna show myself as I am. I'm gonna be my true self.", context: "You're getting undressed at Burning Man.", lang: "EN-US", }]
+  #ando
+  custom_video << {description: 'Mr. Ando of the Woods', code: "Vve3rOUOoZw", durationString: "0:12", language: "japanese", name: "Comedy Club", tags: "funny, animated", title: "Mr Ando of the Woods", views: 1500002, votes: 28}
+  custom_video[1]['translations'] = [{startTime: 176.0, endTime: 185.0, shortTitle: "Arrogant humans! Exactly how much innocent blood must be let to appease their endless greed?", context: "You want to end the discussion on any environmental issue.", lang: "EN-US", }]  
+  #kendo video
+  custom_video << {description: 'Kendo fight', code: "SKDfmwwUKpI", durationString: "0:15", language: "japanese", name: "lovejoypeace443", tags: "funny, skit", title: "白鳥美麗物語 ~Shiratori Mirei Story~", views: 428488, votes: 12}
+  custom_video[2]['translations'] = [{startTime: 38.0, endTime: 53.0, shortTitle: "1: I can't believe you practice Kendo in this weather.  2: I live only for Kendo. I can't believe you guys waste your time doing nothing.", context: "To show your passion for Kendo", lang: "EN-US", }]  
+  #人を怒らせる方法
+  custom_video << {description: 'How to make people mad', code: "FeXLPBCiCpw", durationString: "0:21", language: "japanese", name: "ore desuyo", tags: "funny, skit", title: "人を怒らせる方法30-1", views: 1762106, votes: 25}
+  custom_video[3]['translations'] = [{startTime: 11.0, endTime: 32.0, shortTitle: "1: Nakazawa, can you get this estimate done by tomorrow. 2: Sure buddy, but what are you gonna do til then?", context: "You want to have a different kind of relationship with your boss", lang: "EN-US", }]  
+
+
+  %>
+
+  return <%= custom_video.to_json.html_safe %>;
+});

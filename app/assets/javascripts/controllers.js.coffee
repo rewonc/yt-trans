@@ -1,7 +1,22 @@
 ytControllers = angular.module 'ytControllers', []
 
-ytControllers.controller 'VideosIndexCtrl', ['$scope', 'Video', ($scope, Video) ->
-  $scope.videos = Video.query()
+ytControllers.controller 'VideosIndexCtrl', ['$scope', '$youtube', 'Video', 'VideosIndexInitializer', ($scope, $youtube, Video, VideosIndexInitializer) ->
+  #$scope.videos = Video.query()
+  $scope.videos = VideosIndexInitializer
+  $scope.code = $scope.videos[0].code
+  $scope.translation = $scope.videos[0].translations[0].shortTitle
+  $scope.playerVars = {
+    #enablejsapi: 1,
+    cc_load_policy: 0,
+    iv_load_policy: 3,
+    origin: 'http://localhost:3000',
+    rel: 0,
+    showinfo:0,
+    controls: 0,
+    disablekb: 1,
+    start: $scope.videos[0].translations[0].startTime,
+    end: $scope.videos[0].translations[0].endTime
+  }
   console.log $scope.videos
   $scope.orderProp = '-votes'
   $scope.language = 'japanese'

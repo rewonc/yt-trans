@@ -1,85 +1,122 @@
-<div ng-controller="VideosIndexCtrl">  
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="form-inline">
-        <div class="form-group">
-          Showing videos in 
+<script>
+  <%= render "videos_index_service.js.erb" %>
+</script>
+
+
+<div ng-controller="VideosIndexCtrl"> 
+  <div class="headplayer-wrapper">
+    <div class="headplayer" data-spy="affix" data-offset-top="40">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="embed-responsive-wrapper"><div class="embed-responsive embed-responsive-16by9">
+               <youtube-video id="video-player" video-id="code" player-vars="playerVars"></youtube-video>
+            </div></div>
+          </div>
+          <div class="col-xs-12 col-sm-7 col-md-7">
+            <h4>{{translation}}</h4>
+          </div>
+          <div class="col-xs-12 col-sm-2 col-md-2 text-center">
+            <br /><button type="button" class="btn btn-success">Memorize</button>
+            <p><span class="scissors-count">{{125-28}}</span> studying</p>
+          </div>
         </div>
+    </div> 
+  </div>
+
+
+  <div class="container">
+    <div class="row hidden-xs">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2>Memorize foreign language phrases in videos</h2>
+        <p>Get started by putting in a video url below</p>
         <div class="form-group">
-          <select class="form-control">
-            <option>Japanese</option>
-          </select>
+          <input type="text" class="form-control" placeholder="e.g., http://www.youtube.com/watch?v=iqzt3T4R38c"></input>
         </div>
-        <div class="form-group">
-          &nbsp; &nbsp;
-        </div>
-        <div class="form-group">
-          <a href="#" data-toggle="collapse" data-target="#filters">Filters </a>
+        <br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Uploads by other users</h3>
+        <div class="form-inline">
+          <div class="form-group">
+            Show clips in 
+          </div>
+          <div class="form-group">
+            <select class="form-control">
+              <option>All languages</option>
+              <option>Japanese</option>
+            </select>
+          </div>
+          <div class="form-group filters">
+            <p>
+              <ul class="list-inline">
+                <li></li>
+                <li><strong>Sort by:</strong></li>
+                <li ng-click="orderProp = '-createdDate'">Recent</li>
+                <li ng-click="orderProp = '-votes'">Most studied</li>
+                <li ng-click="orderProp = 'duration'">Shortest</li>
+                <li ng-click="orderProp = '-duration'">Longest</li>
+              </ul>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <div id="filters" class="collapse">
-        <dl class="dl pull-left">
-          <dt>By date</dt>
-          <dd><code>currently disabled</code></dd>
-          <dd>Last week</dd>
-          <dd>Last month</dd>
-          <dd>Last year</dd>
-          <dd>All time</dd>
-        </dl>
-        <dl class="dl">
-          <dt>Sort by</dt>
-          <dd ng-click="orderProp = '-votes'">Most favorites</dd>
-          <dd ng-click="orderProp = '-views'">Most viewed</dd>
-          <dd ng-click="orderProp = 'title'">Alphabetical</dd>
-          <dd ng-click="orderProp = 'duration'">Shortest videos</dd>
-          <dd ng-click="orderProp = '-duration'">Longest videos</dd>
-        </dl>
-      </div>
-    </div>
-  </div>
-  <div class="row listing">
-    <div class="col-sm-12">
-      <ul class="media-list">
-        <li ng-repeat="video in videos | orderBy:orderProp | filter:query | filter:language" class="media">
-          <div class="row media-list-item">
-            <div class="video-image col-xs-12 col-sm-5 col-md-4 col-lg-3">
-              <a href="<%= videos_path %>/{{video.id}}">
-                <img class="media-object" ng-src="http://img.youtube.com/vi/{{video.code}}/mqdefault.jpg" alt="...">
-                <span class="duration">{{video.durationString}}</span>
-              </a>
-            </div>
-            <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6">
-              <div class="media-body">
-                <h3 class="media-heading"><a href="<%= videos_path %>/{{video.id}}">{{video.title}}</a></h3>
-                <p>{{video.description}}</p>
-                <div class="footer">
-                  <ul class="list-inline">
-                    <li><strong>Tags</strong></li>
-                    <li ng-repeat="tags in video.tags.split(',')">{{tags}}</li>
-                  </ul>
-                   <ul class="list-inline">
-                    <li><small>Source views: {{video.views | number}}</small></li>
-                    <li><small>Percent annotated: {{video.percent}}%</small>
-                  </ul>
+    
+    <div class="row listing">
+      <div class="col-xs-12">
+        <ul class="media-list">
+          <li ng-repeat="video in videos | orderBy:orderProp | filter:query | filter:language" class="media">
+            <div class="row media-list-item">
+
+              <div class="video-image hidden-xs col-xs-12 col-sm-10 col-sm-offset-1 col-md-offset-0 col-md-4 col-lg-3">
+                <a href="<%= videos_path %>/{{video.id}}">
+                  <img class="media-object" ng-src="http://img.youtube.com/vi/{{video.code}}/mqdefault.jpg" alt="...">
+                  <span class="duration"> {{video.durationString}}</span>
+                </a>
+              </div>
+
+              <div class="col-xs-12 col-md-8 col-lg-9">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-offset-0 col-md-7 col-lg-8">
+                    <div class="media-body">
+                      <h3 class="media-heading"><a href="<%= videos_path %>/{{video.id}}">{{video.translations[0].shortTitle}}</a></h3>
+                      <p><strong>Use when: </strong>{{video.translations[0].context}}</p>
+                    </div>
+                  </div> 
+                  
+                  <div class="col-xs-12 col-sm-12 col-md-5 col-lg-2">
+                    <div class="sniprate text-center">
+                      <button type="button" class="btn btn-primary">Memorize</button>
+                      <p class="text-center"><span class="scissors-count">{{video.votes}}</span> studying</p>
+                      <br />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                      <div class="footer">
+                        <!--<ul class="list-inline">
+                          <li><strong>Tags</strong></li>
+                          <li ng-repeat="tags in video.tags.split(',')">{{tags}}</li>
+                          <li></li>
+                        </ul>-->
+                          <ul class="list-inline">
+                            <li><small>Language: <span class="badge">{{video.language}}</span></small></li>
+                            <li><small><a href="<%= videos_path %>/{{video.id}}"> Comments ({{video.votes}})</a></small></li>
+                            <li><small><a href="<%= videos_path %>/{{video.id}}">Bookmark</a></small></li>
+                          </ul>
+       
+                      </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-xs-2 col-sm-1 col-md-2 col-lg-3">
-              <div class="pull-left sniprate">
-                <div class="text-center"><i class="fa fa-star fa-3x"></i></div>
-                <p class="text-center"><span class="scissors-count">{{video.votes}}</span></p>
-              </div>
-            </div>
-          </div>
 
-          
-          
-        </li>
-      </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

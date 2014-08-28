@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     respond_to do |format|
-      format.html {  }
+      format.html { @videos = Video.all }
       format.json { render json: Video.all }
     end
   end
